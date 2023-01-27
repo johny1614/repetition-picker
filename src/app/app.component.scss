@@ -1,0 +1,23 @@
+.minutes {
+  color: darkslategray;
+  margin-right: 10px;
+}
+
+.add-minutes-button {
+  background: none;
+  color: aqua;
+  border: none;
+  font-weight: bold;
+  padding: 0;
+  cursor: pointer;
+  margin-left: 20px;
+}
+
+
+.time-scale-picker {
+  margin-bottom: 30px;
+}
+
+.time-scale-picker > input, label {
+  cursor: pointer;
+}

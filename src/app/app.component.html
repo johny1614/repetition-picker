@@ -1,1 +1,23 @@
-Heyooooo
+<!-- TODO move to different component and try if with ngFor its simpler-->
+<div class="time-scale-picker">
+  <input type="radio" id="minutes" name="time-scale-picker">
+  <label for="minutes">Minutes</label>
+
+  <input type="radio" id="daily" name="time-scale-picker" value="daily">
+  <label for="daily">Daily</label>
+
+  <input type="radio" id="weekly" name="time-scale-picker" value="weekly">
+  <label for="weekly">Weekly</label>
+
+  <input type="radio" id="monthly" name="time-scale-picker" value="monthly">
+  <label for="monthly">Monthly</label>
+</div>
+
+<label class="minutes">Minutes</label>
+<app-minute-picker *ngFor="let picker of controls; let i = index"
+                   [removable]="isRemovable(i)"
+                   (removeClick$)="onRemoveClick(i)"
+></app-minute-picker>
+
+
+<button class="add-minutes-button" (click)="add()">+ Add minutes</button>

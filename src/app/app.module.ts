@@ -1,11 +1,13 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
 
-import { AppComponent } from './app.component';
+import {AppComponent} from './app.component';
+import {MinutePickerComponent} from './minute-picker/minute-picker.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MinutePickerComponent
   ],
   imports: [
     BrowserModule
@@ -13,4 +15,6 @@ import { AppComponent } from './app.component';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
+// TODO extract in the end to seperate modules
