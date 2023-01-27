@@ -1,5 +1,11 @@
+app-time-scale-picker {
+  display: block;
+  margin: 40px 0px 20px 30px;
+}
+
 .minutes {
   color: darkslategray;
+  margin-left: 35px;
   margin-right: 10px;
 }
 
@@ -14,10 +20,3 @@
 }
 
 
-.time-scale-picker {
-  margin-bottom: 30px;
-}
-
-.time-scale-picker > label, input {
-  cursor: pointer;
-}

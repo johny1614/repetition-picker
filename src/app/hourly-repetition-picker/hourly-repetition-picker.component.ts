@@ -2,11 +2,11 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormControl} from "@angular/forms";
 
 @Component({
-  selector: 'app-minute-picker',
-  templateUrl: './minute-picker.component.html',
-  styleUrls: ['./minute-picker.component.scss']
+  selector: 'app-hourly-repetition-picker',
+  templateUrl: './hourly-repetition-picker.component.html',
+  styleUrls: ['./hourly-repetition-picker.component.scss']
 })
-export class MinutePickerComponent implements OnInit {
+export class HourlyRepetitionPickerComponent implements OnInit {
 
   @Input()
   removable: boolean = false;

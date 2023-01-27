@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {FormArray, FormControl} from "@angular/forms";
+import {FormArray, FormControl, FormGroup} from "@angular/forms";
+import {TimeScaleName} from "./time-scale-name";
 
 @Component({
   selector: 'app-root',
@@ -7,7 +8,14 @@ import {FormArray, FormControl} from "@angular/forms";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  formControls: FormArray<FormControl<any>> = new FormArray<FormControl<any>>([new FormControl(0)]);
+
+  scaleNames = TimeScaleName;
+
+
+  formGroup = new FormGroup({
+    scalePicker: new FormControl(TimeScaleName.Daily),
+    repetitions: new FormArray([new FormControl('12:15')])
+  })
 
   constructor() {
   }
@@ -16,14 +24,14 @@ export class AppComponent implements OnInit {
   }
 
   add(): void {
-    this.formControls?.controls.push(new FormControl(0));
+    this.formGroup.controls.repetitions.push(new FormControl('12:22'));
   }
 
   onRemoveClick(index: number): void {
-    this.formControls.removeAt(index);
+    this.formGroup.controls.repetitions.removeAt(index);
   }
 
   isRemovable(index: number): boolean {
-    return index > 0 || this.formControls.controls.length > 1;
+    return index > 0 || this.formGroup.controls.repetitions.length > 1;
   }
 }

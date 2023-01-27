@@ -1,18 +1,18 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import {MinutePickerComponent} from './minute-picker.component';
+import {HourlyRepetitionPickerComponent} from './hourly-repetition-picker.component';
 
 describe('MinutePickerComponent', () => {
-  let component: MinutePickerComponent;
-  let fixture: ComponentFixture<MinutePickerComponent>;
+  let component: HourlyRepetitionPickerComponent;
+  let fixture: ComponentFixture<HourlyRepetitionPickerComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [MinutePickerComponent]
+      declarations: [HourlyRepetitionPickerComponent]
     })
       .compileComponents();
 
-    fixture = TestBed.createComponent(MinutePickerComponent);
+    fixture = TestBed.createComponent(HourlyRepetitionPickerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

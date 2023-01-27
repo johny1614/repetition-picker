@@ -1,0 +1,9 @@
+<input class="daily-picker" type="time"
+       [formControl]="control"
+       [ngClass]="removable ? 'left-rounded-border' : 'fully-rounded-border'"
+>
+<button *ngIf="removable"
+        class="close"
+        [ngClass]="removable ? 'right-rounded-border' : 'fully-rounded-border'"
+        (click)="onCloseClick()">&times;
+</button>
