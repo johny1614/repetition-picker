@@ -14,10 +14,14 @@
 </div>
 
 <label class="minutes">Minutes</label>
-<app-minute-picker *ngFor="let picker of controls; let i = index"
-                   [removable]="isRemovable(i)"
-                   (removeClick$)="onRemoveClick(i)"
-></app-minute-picker>
+
+
+  <app-minute-picker
+    *ngFor="let formControl of formControls.controls; let i = index"
+    [control]="formControl"
+    [removable]="isRemovable(i)"
+    (removeClick$)="onRemoveClick(i)"
+  ></app-minute-picker>
 
 
 <button class="add-minutes-button" (click)="add()">+ Add minutes</button>

@@ -29,3 +29,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 TODO in the end:
 Check types
 Run eslint with just recommended rules
+Delete ts-ignores
+Write on changes couse they want it

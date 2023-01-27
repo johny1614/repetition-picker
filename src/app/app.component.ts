@@ -1,26 +1,29 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {FormArray, FormControl} from "@angular/forms";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+  formControls: FormArray<FormControl<any>> = new FormArray<FormControl<any>>([new FormControl(0)]);
 
-  title = 'repetition-picker';
+  constructor() {
+  }
 
-  // TODO some model for sure needed
-  controls = [{}]
+  ngOnInit(): void {
+  }
 
-  add() {
-    this.controls.push({});
+  add(): void {
+    this.formControls?.controls.push(new FormControl(0));
   }
 
   onRemoveClick(index: number): void {
-    this.controls.splice(index, 1);
+    this.formControls.removeAt(index);
   }
 
-  isRemovable(index: number) {
-    return index > 0 || this.controls.length > 1;
+  isRemovable(index: number): boolean {
+    return index > 0 || this.formControls.controls.length > 1;
   }
 }

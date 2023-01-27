@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {FormControl} from "@angular/forms";
 
 @Component({
   selector: 'app-minute-picker',
@@ -9,6 +10,10 @@ export class MinutePickerComponent implements OnInit {
 
   @Input()
   removable: boolean = false;
+
+  @Input()
+  // @ts-ignore
+  control: FormControl;
 
   @Output()
   removeClick$ = new EventEmitter();
