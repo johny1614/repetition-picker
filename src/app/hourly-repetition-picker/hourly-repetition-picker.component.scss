@@ -1,27 +1,27 @@
 /* Removing number input arrows Chrome, Safari, Edge, Opera */
 #my-input::-webkit-outer-spin-button,
-.minute-picker::-webkit-inner-spin-button {
+.hourly-picker::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
 /* Removing number input arrows Firefox */
-.minute-picker[type=number] {
+.hourly-picker[type=number] {
   -moz-appearance: textfield;
 }
 
-.minute-picker {
+.hourly-picker {
   border: 1px solid lightslategrey;
   width: 4ch;
 }
 
-.minute-picker:focus {
+.hourly-picker:focus {
   box-shadow: aqua 0px 0px 3px inset;
   border: 1px solid lightslategrey;
   outline: 0px;
 }
 
-.minute-picker:invalid {
+.hourly-picker:invalid {
   border: 1px solid indianred;
 }
 

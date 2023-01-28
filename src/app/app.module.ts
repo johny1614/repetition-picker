@@ -7,6 +7,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { TimeScalePickerComponent } from './time-scale-picker/time-scale-picker.component';
 import { MonthlyRepetitionPickerComponent } from './monthly-repetition-picker/monthly-repetition-picker.component';
 import { DailyRepetitionPickerComponent } from './daily-repetition-picker/daily-repetition-picker.component';
+import { WeeklyRepetitionPickerComponent } from './weekly-repetition-picker/weekly-repetition-picker.component';
+import { CustomInputComponent } from './custom-input/custom-input.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { DailyRepetitionPickerComponent } from './daily-repetition-picker/daily-
     HourlyRepetitionPickerComponent,
     TimeScalePickerComponent,
     MonthlyRepetitionPickerComponent,
-    DailyRepetitionPickerComponent
+    DailyRepetitionPickerComponent,
+    WeeklyRepetitionPickerComponent,
+    CustomInputComponent
   ],
   imports: [
     BrowserModule,

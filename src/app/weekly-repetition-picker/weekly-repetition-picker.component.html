@@ -1,0 +1,8 @@
+<form [formGroup]="formGroup">
+  <ng-container *ngFor="let checkbox of checkboxesOptions; let i = index" formArrayName="weekDays">
+    <input type="checkbox" [formControlName]="i" />{{checkbox.name}}
+  </ng-container>
+<app-daily-repetition-picker
+  [control]="timeFormControl">
+</app-daily-repetition-picker>
+</form>

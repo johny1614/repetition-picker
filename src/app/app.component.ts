@@ -13,8 +13,8 @@ export class AppComponent implements OnInit {
 
 
   formGroup = new FormGroup({
-    scalePicker: new FormControl(TimeScaleName.Daily),
-    repetitions: new FormArray([new FormControl('12:15')])
+    scalePicker: new FormControl(TimeScaleName.Weekly),
+    repetitions: new FormArray([new FormControl(null)])
   })
 
   constructor() {
@@ -24,7 +24,7 @@ export class AppComponent implements OnInit {
   }
 
   add(): void {
-    this.formGroup.controls.repetitions.push(new FormControl('12:22'));
+    this.formGroup.controls.repetitions.push(new FormControl(null));
   }
 
   onRemoveClick(index: number): void {
