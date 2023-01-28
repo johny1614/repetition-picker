@@ -3,34 +3,29 @@
 <!--  </app-custom-input>-->
 <!--</form>-->
 <!--{{formGroup.controls.scalePicker.getRawValue()}}-->
-
-<app-time-scale-picker [control]="formGroup.controls.scalePicker"></app-time-scale-picker>
+<form [formGroup]="formGroup">
+  <app-time-scale-picker formControlName="scalePicker"></app-time-scale-picker>
+</form>
 
 
 <ng-container *ngIf="formGroup.controls.scalePicker.getRawValue() === scaleNames.Hourly">
-  <label class="minutes">Minutes</label>
-  <app-hourly-repetition-picker
-    *ngFor="let formControl of formGroup.controls.repetitions.controls; let i = index"
-    [control]="formControl"
-    [removable]="isRemovable(i)"
-    (removeClick$)="onRemoveClick(i)"
-  ></app-hourly-repetition-picker>
-  <button class="add-minutes-button" (click)="add()">+ Add minutes</button>
+  <app-hourly-repetition-section></app-hourly-repetition-section>
+<!--  <button class="add-minutes-button" (click)="add()">+ Add minutes</button>-->
 </ng-container>
 
-<ng-container *ngIf="formGroup.controls.scalePicker.getRawValue() === scaleNames.Daily">
-  <app-daily-repetition-picker
-    *ngFor="let formControl of formGroup.controls.repetitions.controls; let i = index"
-    [control]="formControl"
-    [removable]="isRemovable(i)"
-    (removeClick$)="onRemoveClick(i)"
-  ></app-daily-repetition-picker>
-  <button class="add-minutes-button" (click)="add()">+ Add minutes</button>
-</ng-container>
+<!--<ng-container *ngIf="formGroup.controls.scalePicker.getRawValue() === scaleNames.Daily">-->
+<!--  <app-daily-repetition-picker-->
+<!--    *ngFor="let formControl of formGroup.controls.repetitions.controls; let i = index"-->
+<!--    [control]="formControl"-->
+<!--    [removable]="isRemovable(i)"-->
+<!--    (removeClick$)="onRemoveClick(i)"-->
+<!--  ></app-daily-repetition-picker>-->
+<!--  <button class="add-minutes-button" (click)="add()">+ Add minutes</button>-->
+<!--</ng-container>-->
 
-<ng-container *ngIf="formGroup.controls.scalePicker.getRawValue() === scaleNames.Weekly">
-  <app-weekly-repetition-picker
-  ></app-weekly-repetition-picker>
-</ng-container>
+<!--<ng-container *ngIf="formGroup.controls.scalePicker.getRawValue() === scaleNames.Weekly">-->
+<!--  <app-weekly-repetition-picker-->
+<!--  ></app-weekly-repetition-picker>-->
+<!--</ng-container>-->
 
 

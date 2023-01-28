@@ -22,16 +22,4 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  add(): void {
-    this.formGroup.controls.repetitions.push(new FormControl(null));
-  }
-
-  onRemoveClick(index: number): void {
-    this.formGroup.controls.repetitions.removeAt(index);
-  }
-
-  isRemovable(index: number): boolean {
-    return index > 0 || this.formGroup.controls.repetitions.length > 1;
-  }
 }

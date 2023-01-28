@@ -9,6 +9,8 @@ import { MonthlyRepetitionPickerComponent } from './monthly-repetition-picker/mo
 import { DailyRepetitionPickerComponent } from './daily-repetition-picker/daily-repetition-picker.component';
 import { WeeklyRepetitionPickerComponent } from './weekly-repetition-picker/weekly-repetition-picker.component';
 import { CustomInputComponent } from './custom-input/custom-input.component';
+import { HourlyRepetitionSectionComponent } from './hourly-repetition-section/hourly-repetition-section.component';
+import { FormControlPipe } from './form-control.pipe';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { CustomInputComponent } from './custom-input/custom-input.component';
     MonthlyRepetitionPickerComponent,
     DailyRepetitionPickerComponent,
     WeeklyRepetitionPickerComponent,
-    CustomInputComponent
+    CustomInputComponent,
+    HourlyRepetitionSectionComponent,
+    FormControlPipe
   ],
   imports: [
     BrowserModule,

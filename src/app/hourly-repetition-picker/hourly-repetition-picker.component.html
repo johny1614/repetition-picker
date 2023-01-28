@@ -1,5 +1,5 @@
 <input class="hourly-picker" type="number" min="0" max="59"
-       [formControl]="control"
+       [(ngModel)]="val"
        [ngClass]="removable ? 'left-rounded-border' : 'fully-rounded-border'"
 >
 <button *ngIf="removable"

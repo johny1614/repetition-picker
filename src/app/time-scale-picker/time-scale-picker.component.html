@@ -1,4 +1,4 @@
 <ng-container *ngFor="let scaleName of scaleNames | keyvalue">
-    <input [formControl]="control" type="radio" [value]="scaleName.value" [id]="scaleName.value" name="time-scale-picker">
+    <input type="radio" [(ngModel)]="value" [id]="scaleName.value" [value]="scaleName.value" name="time-scale-picker">
     <label [for]="scaleName.value">{{scaleName.value}}</label>
 </ng-container>
