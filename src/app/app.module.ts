@@ -11,6 +11,7 @@ import { WeeklyRepetitionPickerComponent } from './weekly-repetition-picker/week
 import { CustomInputComponent } from './custom-input/custom-input.component';
 import { HourlyRepetitionSectionComponent } from './hourly-repetition-section/hourly-repetition-section.component';
 import { FormControlPipe } from './form-control.pipe';
+import { DailyRepetitionSectionComponent } from './daily-repetition-section/daily-repetition-section.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { FormControlPipe } from './form-control.pipe';
     WeeklyRepetitionPickerComponent,
     CustomInputComponent,
     HourlyRepetitionSectionComponent,
-    FormControlPipe
+    FormControlPipe,
+    DailyRepetitionSectionComponent
   ],
   imports: [
     BrowserModule,

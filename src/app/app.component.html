@@ -1,27 +1,15 @@
-<!--<form [formGroup]="formGroup">-->
-<!--  <app-custom-input formControlName="scalePicker">-->
-<!--  </app-custom-input>-->
-<!--</form>-->
-<!--{{formGroup.controls.scalePicker.getRawValue()}}-->
 <form [formGroup]="formGroup">
   <app-time-scale-picker formControlName="scalePicker"></app-time-scale-picker>
+  {{formGroup.controls.scalePicker.getRawValue()}}
 </form>
-
 
 <ng-container *ngIf="formGroup.controls.scalePicker.getRawValue() === scaleNames.Hourly">
   <app-hourly-repetition-section></app-hourly-repetition-section>
-<!--  <button class="add-minutes-button" (click)="add()">+ Add minutes</button>-->
 </ng-container>
 
-<!--<ng-container *ngIf="formGroup.controls.scalePicker.getRawValue() === scaleNames.Daily">-->
-<!--  <app-daily-repetition-picker-->
-<!--    *ngFor="let formControl of formGroup.controls.repetitions.controls; let i = index"-->
-<!--    [control]="formControl"-->
-<!--    [removable]="isRemovable(i)"-->
-<!--    (removeClick$)="onRemoveClick(i)"-->
-<!--  ></app-daily-repetition-picker>-->
-<!--  <button class="add-minutes-button" (click)="add()">+ Add minutes</button>-->
-<!--</ng-container>-->
+<ng-container *ngIf="formGroup.controls.scalePicker.getRawValue() === scaleNames.Daily">
+  <app-daily-repetition-section></app-daily-repetition-section>
+</ng-container>
 
 <!--<ng-container *ngIf="formGroup.controls.scalePicker.getRawValue() === scaleNames.Weekly">-->
 <!--  <app-weekly-repetition-picker-->

@@ -25,8 +25,8 @@ export class CustomInputComponent implements OnInit, ControlValueAccessor {
   }
   onTouch: any = () => {
   }
-  val = "" // this is the updated value that the class accesses
-  set value(val) {  // this value is updated by programmatic changes if( val !== undefined && this.val !== val){
+  val;
+  set value(val) {
     this.val = val
     this.onChange(val)
     this.onTouch(val)
@@ -34,6 +34,8 @@ export class CustomInputComponent implements OnInit, ControlValueAccessor {
 
 // this method sets the value programmatically
   writeValue(value: any) {
+    console.log('writeVal',value)
+
     this.value = value
   }
 

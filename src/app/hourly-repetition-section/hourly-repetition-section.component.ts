@@ -26,7 +26,7 @@ export class HourlyRepetitionSectionComponent implements OnInit {
   }
 
   add(): void {
-    this.formArray.controls.push(this.fb.control(0));
+    this.formArray.push(this.fb.control(0));
   }
 
 

@@ -1,5 +1,6 @@
 <input class="daily-picker" type="time"
-       [formControl]="control"
+       [ngModel]="val"
+       (ngModelChange)="onChange($event)"
        [ngClass]="removable ? 'left-rounded-border' : 'fully-rounded-border'"
 >
 <button *ngIf="removable"

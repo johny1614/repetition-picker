@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
 
 
   formGroup = new FormGroup({
-    scalePicker: new FormControl(TimeScaleName.Weekly),
+    scalePicker: new FormControl(TimeScaleName.Daily),
     repetitions: new FormArray([new FormControl(null)])
   })
 

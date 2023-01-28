@@ -1,0 +1,8 @@
+<label class="at-label">At</label>
+<app-daily-repetition-picker
+  *ngFor="let formControl of formArray.controls; let i = index"
+  [formControl]="formControl | formControl"
+  [removable]="isRemovable(i)"
+  (removeClick$)="onRemoveClick(i)"
+></app-daily-repetition-picker>
+<button class="add-time-buton" (click)="add()">+ Add time</button>
