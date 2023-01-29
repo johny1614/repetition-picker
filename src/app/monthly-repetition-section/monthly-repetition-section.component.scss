@@ -1,0 +1,23 @@
+td{
+  text-align: center;
+  padding: 4px;
+  cursor: pointer;
+
+}
+
+td:hover{
+  background: lightgray;
+  border-radius: 50%;
+}
+
+td.checked{
+  background: yellow;
+  border-radius: 50%;
+}
+
+
+.prevent-select {
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}

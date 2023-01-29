@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
   scaleNames = TimeScaleName;
 
   formGroup = new FormGroup({
-    scalePicker: new FormControl(TimeScaleName.Weekly),
+    scalePicker: new FormControl(TimeScaleName.Monthly),
     scalePicker2: new FormControl(TimeScaleName.Weekly),
     repetitions: new FormArray([new FormControl(null)])
   })
@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  getScale(): TimeScaleName | null{
+  getScale(): TimeScaleName | null {
     return this.formGroup.controls.scalePicker.value;
   }
 }

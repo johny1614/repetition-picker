@@ -14,6 +14,7 @@ import { FormControlPipe } from './form-control.pipe';
 import { DailyRepetitionSectionComponent } from './daily-repetition-section/daily-repetition-section.component';
 import { WeeklyRepetitionSectionComponent } from './weekly-repetition-section/weekly-repetition-section.component';
 import { FormGroupPipe } from './form-group.pipe';
+import { MonthlyRepetitionSectionComponent } from './monthly-repetition-section/monthly-repetition-section.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { FormGroupPipe } from './form-group.pipe';
     FormControlPipe,
     DailyRepetitionSectionComponent,
     WeeklyRepetitionSectionComponent,
-    FormGroupPipe
+    FormGroupPipe,
+    MonthlyRepetitionSectionComponent
   ],
   imports: [
     BrowserModule,
