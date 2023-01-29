@@ -1,10 +1,11 @@
-import {Component, OnInit} from '@angular/core';
-import {FormArray, FormBuilder, FormControl} from "@angular/forms";
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {FormArray, FormBuilder} from "@angular/forms";
 
 @Component({
   selector: 'app-hourly-repetition-section',
   templateUrl: './hourly-repetition-section.component.html',
-  styleUrls: ['./hourly-repetition-section.component.scss']
+  styleUrls: ['./hourly-repetition-section.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HourlyRepetitionSectionComponent implements OnInit {
 
@@ -25,7 +26,7 @@ export class HourlyRepetitionSectionComponent implements OnInit {
     return index > 0 || this.formArray.length > 1;
   }
 
-  add(): void {
+  addHourlyPicker(): void {
     this.formArray.push(this.fb.control(0));
   }
 

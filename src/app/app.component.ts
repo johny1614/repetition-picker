@@ -1,29 +1,26 @@
-import {Component, OnInit} from '@angular/core';
-import {FormArray, FormControl, FormGroup} from "@angular/forms";
-import {TimeScaleName} from "./time-scale-name";
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {FormBuilder, FormControl} from "@angular/forms";
+import {TimeScale} from "./time-scale";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent implements OnInit {
 
-  scaleNames = TimeScaleName;
+  timeScales = TimeScale;
+  scalePickerFormControl: FormControl<TimeScale | null>;
 
-  formGroup = new FormGroup({
-    scalePicker: new FormControl(TimeScaleName.Monthly),
-    scalePicker2: new FormControl(TimeScaleName.Weekly),
-    repetitions: new FormArray([new FormControl(null)])
-  })
-
-  constructor() {
+  constructor(private fb: FormBuilder) {
+    this.scalePickerFormControl = this.fb.control(null);
   }
 
   ngOnInit(): void {
   }
 
-  getScale(): TimeScaleName | null {
-    return this.formGroup.controls.scalePicker.value;
+  getTimeScale(): TimeScale | null {
+    return this.scalePickerFormControl.value;
   }
 }

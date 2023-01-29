@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component, forwardRef, Input, OnInit} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
-import {TimeScaleName, timeScaleNames} from "../time-scale-name";
+import {TimeScale, timeScaleNames} from "../../../../time-scale";
 
 @Component({
   selector: 'app-time-scale-picker',
@@ -18,22 +18,15 @@ import {TimeScaleName, timeScaleNames} from "../time-scale-name";
 export class TimeScalePickerComponent implements OnInit, ControlValueAccessor {
 
   private static componentInstances: number = 0;
-
-  componentId: string = '0';
-
-  scaleNames: Array<TimeScaleName> = timeScaleNames;
-
-  constructor() {
-  }
+  componentId: string;
+  scaleNames: Array<TimeScale> = timeScaleNames;
 
   ngOnInit(): void {
     this.componentId = (++TimeScalePickerComponent.componentInstances).toString();
   }
 
-  onChange: any = () => {
-  }
-  onTouch: any = () => {
-  }
+  onChange: any = () => {}
+  onTouch: any = () => {}
 
   val: string;
 

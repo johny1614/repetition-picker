@@ -1,10 +1,11 @@
-import {Component, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-weekly-repetition-section',
   templateUrl: './weekly-repetition-section.component.html',
-  styleUrls: ['./weekly-repetition-section.component.scss']
+  styleUrls: ['./weekly-repetition-section.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class WeeklyRepetitionSectionComponent implements OnInit {
 
@@ -14,12 +15,15 @@ export class WeeklyRepetitionSectionComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const timeFormControl = this.fb.control<string>('00:00') as FormControl<string>;
-    const weekDaysFormControl = this.fb.control(Array.from({length: 7}, el => el = false));
+    const timeFormControl: FormControl<string> = this.fb.control<string>('00:00') as FormControl<string>;
+    const weekDaysFormControl: FormControl<Array<boolean>> = this.getWeekDaysFormControl();
     this.formGroup = this.fb.group({
       weekDays: weekDaysFormControl,
       time: timeFormControl
     });
   }
 
+  private getWeekDaysFormControl(): FormControl<Array<boolean>> {
+    return this.fb.control(Array.from({length: 7}, el => el = false)) as FormControl<Array<boolean>>;
+  }
 }

@@ -1,10 +1,11 @@
-import {Component, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {FormArray, FormBuilder} from "@angular/forms";
 
 @Component({
   selector: 'app-daily-repetition-section',
   templateUrl: './daily-repetition-section.component.html',
-  styleUrls: ['./daily-repetition-section.component.scss']
+  styleUrls: ['./daily-repetition-section.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DailyRepetitionSectionComponent implements OnInit {
 
@@ -21,7 +22,7 @@ export class DailyRepetitionSectionComponent implements OnInit {
     return index > 0 || this.formArray.length > 1;
   }
 
-  add(): void {
+  addDailyPicker(): void {
     this.formArray.push(this.fb.control('00:00'));
   }
 

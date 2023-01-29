@@ -1,13 +1,9 @@
-<form [formGroup]="formGroup">
-  lol
-  <app-time-scale-picker formControlName="scalePicker"
+<app-time-scale-picker [formControl]="scalePickerFormControl"
+></app-time-scale-picker>
 
-  ></app-time-scale-picker>
-</form>
-
-<app-hourly-repetition-section *ngIf="getScale() === scaleNames.Hourly"></app-hourly-repetition-section>
-<app-daily-repetition-section *ngIf="getScale() === scaleNames.Daily"></app-daily-repetition-section>
-<app-weekly-repetition-section *ngIf="getScale() === scaleNames.Weekly"></app-weekly-repetition-section>
-<app-monthly-repetition-section *ngIf="getScale() === scaleNames.Monthly"></app-monthly-repetition-section>
+<app-hourly-repetition-section *ngIf="getTimeScale() === timeScales.Hourly"></app-hourly-repetition-section>
+<app-daily-repetition-section *ngIf="getTimeScale() === timeScales.Daily"></app-daily-repetition-section>
+<app-weekly-repetition-section *ngIf="getTimeScale() === timeScales.Weekly"></app-weekly-repetition-section>
+<app-monthly-repetition-section *ngIf="getTimeScale() === timeScales.Monthly"></app-monthly-repetition-section>
 
 

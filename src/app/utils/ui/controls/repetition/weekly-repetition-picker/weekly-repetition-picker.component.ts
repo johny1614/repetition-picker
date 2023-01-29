@@ -1,4 +1,4 @@
-import {Component, forwardRef, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, forwardRef, OnInit} from '@angular/core';
 import {
   AbstractControl,
   ControlValueAccessor,
@@ -7,13 +7,14 @@ import {
   FormGroup,
   NG_VALUE_ACCESSOR
 } from "@angular/forms";
-import {WeekDay} from "../week-day";
+import {WeekDay} from "../../../../../week-day";
 import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-weekly-repetition-picker',
   templateUrl: './weekly-repetition-picker.component.html',
   styleUrls: ['./weekly-repetition-picker.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
@@ -22,7 +23,7 @@ import {Subscription} from "rxjs";
     }
   ]
 })
-export class WeeklyRepetitionPickerComponent implements OnInit, ControlValueAccessor {
+export class WeeklyRepetitionPickerComponent {
 
   formArray: FormArray;
   _onChange;
@@ -31,11 +32,6 @@ export class WeeklyRepetitionPickerComponent implements OnInit, ControlValueAcce
   dayLabels: Array<string> = WeekDay.getWeekDays().map(day => day.getShortName());
   formArrayValueChangesSubscription: Subscription;
 
-  constructor() {
-  }
-
-  ngOnInit() {
-  }
 
   writeValue(value: Array<boolean>): void {
     this.formArray = new FormArray(
@@ -45,13 +41,7 @@ export class WeeklyRepetitionPickerComponent implements OnInit, ControlValueAcce
         });
       })
     );
-    if (this.formArrayValueChangesSubscription) {
-      this.formArrayValueChangesSubscription.unsubscribe();
-    }
-    this.formArrayValueChangesSubscription = this.formArray.valueChanges.subscribe(formArrayValue => {
-      const writeValue: Array<boolean> = formArrayValue.map(el => el.checked);
-      this._onChange(writeValue);
-    });
+    this.observeFormArrayChanges();
   }
 
   registerOnChange(fn: (value: any) => void) {
@@ -60,5 +50,15 @@ export class WeeklyRepetitionPickerComponent implements OnInit, ControlValueAcce
 
   registerOnTouched(fn: (value: any) => void) {
     this._onTouched = fn;
+  }
+
+  private observeFormArrayChanges() {
+    if (this.formArrayValueChangesSubscription) {
+      this.formArrayValueChangesSubscription.unsubscribe();
+    }
+    this.formArrayValueChangesSubscription = this.formArray.valueChanges.subscribe(formArrayValue => {
+      const writeValue: Array<boolean> = formArrayValue.map(el => el.checked);
+      this._onChange(writeValue);
+    });
   }
 }

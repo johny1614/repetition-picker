@@ -1,10 +1,11 @@
-import {Component, forwardRef, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, forwardRef, OnInit} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
 
 @Component({
   selector: 'app-custom-input',
   templateUrl: './custom-input.component.html',
   styleUrls: ['./custom-input.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,

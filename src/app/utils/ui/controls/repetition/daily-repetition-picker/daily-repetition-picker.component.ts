@@ -1,10 +1,11 @@
-import {Component, EventEmitter, forwardRef, Input, OnInit, Output} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, forwardRef, Input, OnInit, Output} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
 
 @Component({
   selector: 'app-daily-repetition-picker',
   templateUrl: './daily-repetition-picker.component.html',
   styleUrls: ['./daily-repetition-picker.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
