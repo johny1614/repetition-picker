@@ -1,4 +1,5 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {FormControl} from "@angular/forms";
 
 @Component({
   selector: 'app-monthly-repetition-section',
@@ -11,6 +12,7 @@ export class MonthlyRepetitionSectionComponent implements OnInit {
   days: Array<MonthCalendarDay> = this.createDays()
   weeks = [0, 1, 2, 3, 4]
   lastDay: MonthCalendarDay = {name: 'Last day', checked: false}
+  time = new FormControl('00:00')
 
   constructor() {
   }

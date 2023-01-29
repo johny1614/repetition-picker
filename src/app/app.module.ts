@@ -11,12 +11,26 @@ import { WeeklyRepetitionPickerComponent } from './utils/ui/controls/repetition/
 import { CustomInputComponent } from './custom-input/custom-input.component';
 import { FormControlPipe } from './form-control.pipe';
 import { FormGroupPipe } from './form-group.pipe';
+import {
+  HourlyRepetitionSectionComponent
+} from "./domain/repetition/repetition/hourly-repetition-section/hourly-repetition-section.component";
+import {
+  DailyRepetitionSectionComponent
+} from "./domain/repetition/repetition/daily-repetition-section/daily-repetition-section.component";
+import {WeeklyRepetitionSectionComponent} from "./weekly-repetition-section/weekly-repetition-section.component";
+import {
+  MonthlyRepetitionSectionComponent
+} from "./domain/repetition/repetition/monthly-repetition-section/monthly-repetition-section.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     HourlyRepetitionPickerComponent,
     TimeScalePickerComponent,
+    HourlyRepetitionSectionComponent,
+    DailyRepetitionSectionComponent,
+    WeeklyRepetitionSectionComponent,
+    MonthlyRepetitionSectionComponent,
     MonthlyRepetitionPickerComponent,
     DailyRepetitionPickerComponent,
     WeeklyRepetitionPickerComponent,
