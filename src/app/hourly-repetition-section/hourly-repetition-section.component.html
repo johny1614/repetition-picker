@@ -1,5 +1,3 @@
-<p>hourly-repetition-section works!</p>
-
 <label class="minutes">Minutes</label>
 <ng-container *ngFor="let form of formArray.controls; let i = index">
   <app-hourly-repetition-picker [formControl]="formArray.controls[i] | formControl"

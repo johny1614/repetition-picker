@@ -1,8 +1,4 @@
-<form [formGroup]="formGroup">
-  <ng-container *ngFor="let checkbox of checkboxesOptions; let i = index" formArrayName="weekDays">
-    <input type="checkbox" [formControlName]="i" />{{checkbox.name}}
-  </ng-container>
-<!--  TODO DODAV V-->
-<!--<app-daily-repetition-picker >-->
-<!--</app-daily-repetition-picker>-->
-</form>
+<ng-container *ngFor="let formGroup of formArray.controls; let i = index" [formGroup]="formGroup | formGroup">
+  <input formControlName="checked" type="checkbox" [id]="i" (blur)="_onTouched()" />
+  <label [for]="i">{{dayLabels[i]}}</label>
+</ng-container>

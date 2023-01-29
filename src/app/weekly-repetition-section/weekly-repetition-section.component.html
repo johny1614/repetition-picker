@@ -1,0 +1,6 @@
+<form [formGroup]="formGroup">
+  <app-weekly-repetition-picker
+    formControlName="weekDays"
+  ></app-weekly-repetition-picker>
+</form>
+{{formGroup.controls.weekDays.getRawValue()}}

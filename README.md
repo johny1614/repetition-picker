@@ -31,3 +31,4 @@ Check types
 Run eslint with just recommended rules
 Delete ts-ignores
 Write on changes couse they want it
+Pipe'y unsubscribey wszedzie

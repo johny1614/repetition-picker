@@ -2,8 +2,9 @@
   <input [ngModel]="val"
          (ngModelChange)="writeValue($event)"
          type="radio"
-         [id]="scaleName.value"
-         [value]="scaleName.value" name="time-scale-picker">
-  <label [for]="scaleName.value">{{scaleName.value}}</label>
+         [id]="scaleName.value + componentId"
+         [value]="scaleName.value" [name]="'time-scale-picker-' + componentId">
+  <label [for]="scaleName.value + componentId">{{scaleName.value}}</label>
 </ng-container>
+{{val}}
 

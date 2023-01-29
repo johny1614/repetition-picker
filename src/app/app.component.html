@@ -1,19 +1,11 @@
 <form [formGroup]="formGroup">
-  <app-time-scale-picker formControlName="scalePicker"></app-time-scale-picker>
-  {{formGroup.controls.scalePicker.getRawValue()}}
+  lol
+  <app-time-scale-picker formControlName="scalePicker"
+  ></app-time-scale-picker>
 </form>
 
-<ng-container *ngIf="formGroup.controls.scalePicker.getRawValue() === scaleNames.Hourly">
-  <app-hourly-repetition-section></app-hourly-repetition-section>
-</ng-container>
-
-<ng-container *ngIf="formGroup.controls.scalePicker.getRawValue() === scaleNames.Daily">
-  <app-daily-repetition-section></app-daily-repetition-section>
-</ng-container>
-
-<!--<ng-container *ngIf="formGroup.controls.scalePicker.getRawValue() === scaleNames.Weekly">-->
-<!--  <app-weekly-repetition-picker-->
-<!--  ></app-weekly-repetition-picker>-->
-<!--</ng-container>-->
+<app-hourly-repetition-section *ngIf="getScale() === scaleNames.Hourly"></app-hourly-repetition-section>
+<app-daily-repetition-section *ngIf="getScale() === scaleNames.Daily"></app-daily-repetition-section>
+<app-weekly-repetition-section *ngIf="getScale() === scaleNames.Weekly"></app-weekly-repetition-section>
 
 

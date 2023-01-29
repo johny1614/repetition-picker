@@ -12,6 +12,8 @@ import { CustomInputComponent } from './custom-input/custom-input.component';
 import { HourlyRepetitionSectionComponent } from './hourly-repetition-section/hourly-repetition-section.component';
 import { FormControlPipe } from './form-control.pipe';
 import { DailyRepetitionSectionComponent } from './daily-repetition-section/daily-repetition-section.component';
+import { WeeklyRepetitionSectionComponent } from './weekly-repetition-section/weekly-repetition-section.component';
+import { FormGroupPipe } from './form-group.pipe';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { DailyRepetitionSectionComponent } from './daily-repetition-section/dail
     CustomInputComponent,
     HourlyRepetitionSectionComponent,
     FormControlPipe,
-    DailyRepetitionSectionComponent
+    DailyRepetitionSectionComponent,
+    WeeklyRepetitionSectionComponent,
+    FormGroupPipe
   ],
   imports: [
     BrowserModule,

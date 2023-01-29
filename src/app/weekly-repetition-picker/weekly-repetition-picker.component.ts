@@ -1,64 +1,64 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, forwardRef, OnInit} from '@angular/core';
+import {
+  AbstractControl,
+  ControlValueAccessor,
+  FormArray,
+  FormControl,
+  FormGroup,
+  NG_VALUE_ACCESSOR
+} from "@angular/forms";
 import {WeekDay} from "../week-day";
-import {Form, FormArray, FormBuilder, FormControl, FormGroup} from "@angular/forms";
-import {Subject, Subscription, takeUntil} from "rxjs";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-weekly-repetition-picker',
   templateUrl: './weekly-repetition-picker.component.html',
-  styleUrls: ['./weekly-repetition-picker.component.scss']
+  styleUrls: ['./weekly-repetition-picker.component.scss'],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => WeeklyRepetitionPickerComponent),
+      multi: true
+    }
+  ]
 })
-export class WeeklyRepetitionPickerComponent implements OnInit {
+export class WeeklyRepetitionPickerComponent implements OnInit, ControlValueAccessor {
 
-  formGroup: FormGroup;
-  timeFormControl: FormControl<string>;
-  weekDaysFormArray: FormArray;
+  formArray: FormArray;
+  _onChange;
+  _onTouched;
 
-  // TODO moze jako Map V?
-  checkboxesOptions: Array<{ name: string, value: string }> = this.getCheckboxesOptions();
-  private destroy$ = new Subject<void>();
+  dayLabels: Array<string> = WeekDay.getWeekDays().map(day => day.getShortName());
+  formArrayValueChangesSubscription: Subscription;
 
-  constructor(private fb: FormBuilder) {
+  constructor() {
   }
 
   ngOnInit() {
-    this.createForm();
-    this.observeWeekDaysFormChanges();
   }
 
-  ngOnDestroy() {
-    this.destroy$.next();
-  }
-
-
-  private createForm(): void {
-    this.timeFormControl = this.fb.control<string>('00:00') as FormControl<string>;
-    this.weekDaysFormArray = this.fb.array(this.checkboxesOptions.map(x => false));
-    this.formGroup = this.fb.group({
-      weekDays: this.weekDaysFormArray,
-      time: this.timeFormControl
+  writeValue(value: Array<boolean>): void {
+    this.formArray = new FormArray(
+      value.map((checkBoxValue: boolean) => {
+        return new FormGroup({
+          checked: new FormControl(checkBoxValue),
+        });
+      })
+    );
+    if (this.formArrayValueChangesSubscription) {
+      this.formArrayValueChangesSubscription.unsubscribe();
+    }
+    this.formArrayValueChangesSubscription = this.formArray.valueChanges.subscribe(formArrayValue => {
+      const writeValue: Array<boolean> = formArrayValue.map(el => el.checked);
+      this._onChange(writeValue);
     });
   }
 
-  private observeWeekDaysFormChanges(): void {
-    this.weekDaysFormArray.valueChanges
-      .pipe(takeUntil(this.destroy$))
-      .subscribe((_weekDaysFormArrayValue: Array<string | false>) => {
-        const newFormValues = _weekDaysFormArrayValue.map((value: string | false, i: number) => value ? this.checkboxesOptions[i].value : false);
-        this.weekDaysFormArray.setValue(
-          newFormValues,
-          {emitEvent: false}
-        );
-
-      });
+  registerOnChange(fn: (value: any) => void) {
+    this._onChange = fn;
   }
 
-  private getCheckboxesOptions(): Array<{ name: string, value: string }> {
-    return WeekDay.getWeekDays().map((weekDay: WeekDay) => {
-      return {
-        name: weekDay.getShortName(),
-        value: weekDay.name
-      }
-    })
+  registerOnTouched(fn: (value: any) => void) {
+    this._onTouched = fn;
   }
 }

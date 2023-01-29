@@ -34,8 +34,6 @@ export class CustomInputComponent implements OnInit, ControlValueAccessor {
 
 // this method sets the value programmatically
   writeValue(value: any) {
-    console.log('writeVal',value)
-
     this.value = value
   }
 
