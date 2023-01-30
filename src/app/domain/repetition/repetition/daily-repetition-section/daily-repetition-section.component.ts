@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {FormArray, FormBuilder} from "@angular/forms";
 
 @Component({
@@ -7,7 +7,7 @@ import {FormArray, FormBuilder} from "@angular/forms";
   styleUrls: ['./daily-repetition-section.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DailyRepetitionSectionComponent implements OnInit {
+export class DailyRepetitionSectionComponent implements OnInit, OnChanges {
 
   formArray: FormArray;
 
@@ -16,6 +16,10 @@ export class DailyRepetitionSectionComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log('DailyRepetitionSectionComponent', changes)
   }
 
   isRemovable(index: number): boolean {

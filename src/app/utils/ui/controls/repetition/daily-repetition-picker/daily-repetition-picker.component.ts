@@ -1,4 +1,13 @@
-import {ChangeDetectionStrategy, Component, EventEmitter, forwardRef, Input, OnInit, Output} from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  forwardRef,
+  Input, OnChanges,
+  OnInit,
+  Output,
+  SimpleChanges
+} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
 
 @Component({
@@ -14,7 +23,7 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
     }
   ]
 })
-export class DailyRepetitionPickerComponent implements OnInit, ControlValueAccessor {
+export class DailyRepetitionPickerComponent implements OnInit, ControlValueAccessor, OnChanges {
 
   @Input()
   removable: boolean = false;
@@ -23,6 +32,10 @@ export class DailyRepetitionPickerComponent implements OnInit, ControlValueAcces
   removeClick$ = new EventEmitter();
 
   ngOnInit(): void {
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log('DailyRepetitionPickerComponent', changes)
   }
 
   onCloseClick(): void {

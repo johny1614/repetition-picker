@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {FormControl} from "@angular/forms";
 
 @Component({
@@ -7,7 +7,7 @@ import {FormControl} from "@angular/forms";
   styleUrls: ['./monthly-repetition-section.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class MonthlyRepetitionSectionComponent implements OnInit {
+export class MonthlyRepetitionSectionComponent implements OnInit, OnChanges {
 
   days: Array<MonthCalendarDay> = this.createDays()
   weeks = [0, 1, 2, 3, 4]
@@ -17,10 +17,14 @@ export class MonthlyRepetitionSectionComponent implements OnInit {
   constructor() {
   }
 
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log('MonthlyRepetitionSectionComponent', changes)
+  }
+
   ngOnInit(): void {
   }
 
-  getDaysOfWeek(week: number) {
+  getDaysOfWeek(week: number): Array<MonthCalendarDay> {
     return this.days.slice(7 * week, 7 * week + 7);
   }
 

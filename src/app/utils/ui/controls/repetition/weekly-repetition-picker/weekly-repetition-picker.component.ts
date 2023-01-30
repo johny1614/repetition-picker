@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, forwardRef, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, forwardRef, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {
   AbstractControl,
   ControlValueAccessor,
@@ -23,7 +23,7 @@ import {Subscription} from "rxjs";
     }
   ]
 })
-export class WeeklyRepetitionPickerComponent {
+export class WeeklyRepetitionPickerComponent implements ControlValueAccessor, OnChanges {
 
   formArray: FormArray;
   _onChange;
@@ -31,6 +31,10 @@ export class WeeklyRepetitionPickerComponent {
 
   dayLabels: Array<string> = WeekDay.getWeekDays().map(day => day.getShortName());
   formArrayValueChangesSubscription: Subscription;
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log('WeeklyRepetitionPickerComponent', changes)
+  }
 
 
   writeValue(value: Array<boolean>): void {

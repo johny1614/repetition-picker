@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 
 @Component({
   selector: 'app-monthly-repetition-picker',
@@ -6,12 +6,17 @@ import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
   styleUrls: ['./monthly-repetition-picker.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class MonthlyRepetitionPickerComponent implements OnInit {
+export class MonthlyRepetitionPickerComponent implements OnInit, OnChanges {
 
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log('MonthlyRepetitionPickerComponent', changes)
   }
 
 }

@@ -1,6 +1,7 @@
-import {Component, EventEmitter, forwardRef, Inject, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, forwardRef, Inject, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 import {AbstractControl, FormControl, NG_VALUE_ACCESSOR} from "@angular/forms";
 
+// @ts-ignore
 @Component({
   selector: 'app-hourly-repetition-picker',
   templateUrl: './hourly-repetition-picker.component.html',
@@ -13,7 +14,7 @@ import {AbstractControl, FormControl, NG_VALUE_ACCESSOR} from "@angular/forms";
     }
   ]
 })
-export class HourlyRepetitionPickerComponent implements OnInit {
+export class HourlyRepetitionPickerComponent implements OnInit, OnChanges {
 
   @Input()
   removable: boolean = false;
@@ -39,6 +40,10 @@ export class HourlyRepetitionPickerComponent implements OnInit {
     this.val = val
     this.onChange(val)
     this.onTouch(val)
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log('HourlyRepetitionPickerComponent', changes)
   }
 
   writeValue(value: any) {

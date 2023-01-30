@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {FormArray, FormBuilder} from "@angular/forms";
 
 @Component({
@@ -7,7 +7,7 @@ import {FormArray, FormBuilder} from "@angular/forms";
   styleUrls: ['./hourly-repetition-section.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class HourlyRepetitionSectionComponent implements OnInit {
+export class HourlyRepetitionSectionComponent implements OnInit, OnChanges {
 
   formArray: FormArray;
 
@@ -28,6 +28,10 @@ export class HourlyRepetitionSectionComponent implements OnInit {
 
   addHourlyPicker(): void {
     this.formArray.push(this.fb.control(0));
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log('HourlyRepetitionSectionComponent',changes)
   }
 
 

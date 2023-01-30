@@ -8,7 +8,6 @@ import { TimeScalePickerComponent } from './utils/ui/controls/time-scale-picker/
 import { MonthlyRepetitionPickerComponent } from './utils/ui/controls/repetition/monthly-repetition-picker/monthly-repetition-picker.component';
 import { DailyRepetitionPickerComponent } from './utils/ui/controls/repetition/daily-repetition-picker/daily-repetition-picker.component';
 import { WeeklyRepetitionPickerComponent } from './utils/ui/controls/repetition/weekly-repetition-picker/weekly-repetition-picker.component';
-import { CustomInputComponent } from './custom-input/custom-input.component';
 import { FormControlPipe } from './form-control.pipe';
 import { FormGroupPipe } from './form-group.pipe';
 import {
@@ -34,7 +33,6 @@ import {
     MonthlyRepetitionPickerComponent,
     DailyRepetitionPickerComponent,
     WeeklyRepetitionPickerComponent,
-    CustomInputComponent,
     FormControlPipe,
     FormGroupPipe,
 // TODO extract to seperate modules
