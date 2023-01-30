@@ -1,11 +1,22 @@
-import {Component, EventEmitter, forwardRef, Inject, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
-import {AbstractControl, FormControl, NG_VALUE_ACCESSOR} from "@angular/forms";
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  forwardRef,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChanges
+} from '@angular/core';
+import {NG_VALUE_ACCESSOR} from "@angular/forms";
 
 // @ts-ignore
 @Component({
   selector: 'app-hourly-repetition-picker',
   templateUrl: './hourly-repetition-picker.component.html',
   styleUrls: ['./hourly-repetition-picker.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,

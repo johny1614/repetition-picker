@@ -1,9 +1,10 @@
 <app-time-scale-picker [formControl]="scalePickerFormControl"
 ></app-time-scale-picker>
-
+<div class="repetition-section">
 <app-hourly-repetition-section *ngIf="getTimeScale() === timeScales.Hourly"></app-hourly-repetition-section>
 <app-daily-repetition-section *ngIf="getTimeScale() === timeScales.Daily"></app-daily-repetition-section>
 <app-weekly-repetition-section *ngIf="getTimeScale() === timeScales.Weekly"></app-weekly-repetition-section>
 <app-monthly-repetition-section *ngIf="getTimeScale() === timeScales.Monthly"></app-monthly-repetition-section>
+</div>
 
 
