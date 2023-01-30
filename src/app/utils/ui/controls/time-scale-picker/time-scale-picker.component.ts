@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component, forwardRef, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
-import {TimeScale, timeScaleNames} from "../../../../time-scale";
+import {TimeScale, timeScaleNames} from "./time-scale";
 
 @Component({
   selector: 'app-time-scale-picker',

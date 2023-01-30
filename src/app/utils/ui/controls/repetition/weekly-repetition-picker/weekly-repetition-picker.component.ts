@@ -7,7 +7,7 @@ import {
   FormGroup,
   NG_VALUE_ACCESSOR
 } from "@angular/forms";
-import {WeekDay} from "../../../../../week-day";
+import {WeekDay} from "./week-day";
 import {Subscription} from "rxjs";
 
 @Component({

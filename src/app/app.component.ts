@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl} from "@angular/forms";
-import {TimeScale} from "./time-scale";
+import {TimeScale} from "./utils/ui/controls/time-scale-picker/time-scale";
 
 @Component({
   selector: 'app-root',
