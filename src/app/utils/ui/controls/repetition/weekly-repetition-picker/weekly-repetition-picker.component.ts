@@ -1,8 +1,16 @@
-import {ChangeDetectionStrategy, Component, forwardRef, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  forwardRef,
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  SimpleChanges
+} from '@angular/core';
 import {
   AbstractControl,
   ControlValueAccessor,
-  FormArray,
+  FormArray, FormBuilder,
   FormControl,
   FormGroup,
   NG_VALUE_ACCESSOR
@@ -23,7 +31,7 @@ import {Subscription} from "rxjs";
     }
   ]
 })
-export class WeeklyRepetitionPickerComponent implements ControlValueAccessor, OnChanges {
+export class WeeklyRepetitionPickerComponent implements ControlValueAccessor, OnChanges, OnDestroy {
 
   formArray: FormArray;
   _onChange;
@@ -32,15 +40,24 @@ export class WeeklyRepetitionPickerComponent implements ControlValueAccessor, On
   dayLabels: Array<string> = WeekDay.getWeekDays().map(day => day.getShortName());
   formArrayValueChangesSubscription: Subscription;
 
+  constructor(private fb: FormBuilder) {
+  }
+
+  ngOnDestroy(): void {
+    if(this.formArrayValueChangesSubscription){
+      this.formArrayValueChangesSubscription.unsubscribe();
+    }
+  }
+
   ngOnChanges(changes: SimpleChanges): void {
     console.log('WeeklyRepetitionPickerComponent', changes)
   }
 
 
   writeValue(value: Array<boolean>): void {
-    this.formArray = new FormArray(
+    this.formArray = this.fb.array(
       value.map((checkBoxValue: boolean) => {
-        return new FormGroup({
+        return this.fb.group({
           checked: new FormControl(checkBoxValue),
         });
       })
