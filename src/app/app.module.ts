@@ -16,7 +16,7 @@ import {
 import {
   DailyRepetitionSectionComponent
 } from "./domain/repetition/daily-repetition-section/daily-repetition-section.component";
-import {WeeklyRepetitionSectionComponent} from "./weekly-repetition-section/weekly-repetition-section.component";
+import {WeeklyRepetitionSectionComponent} from "./domain/repetition/weekly-repetition-section/weekly-repetition-section.component";
 import {
   MonthlyRepetitionSectionComponent
 } from "./domain/repetition/monthly-repetition-section/monthly-repetition-section.component";
