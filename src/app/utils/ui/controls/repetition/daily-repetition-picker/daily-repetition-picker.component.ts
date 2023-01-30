@@ -51,7 +51,7 @@ export class DailyRepetitionPickerComponent implements OnInit, ControlValueAcces
   onTouch: any = () => {
   }
 
-  val: string;
+  val: string = '00:00';
 
   set value(val) {
     this.val = val

@@ -1,12 +1,11 @@
 <table>
   <tr *ngFor="let week of weeks">
-    <ng-container *ngFor="let day of getDaysOfWeek(week)">
-      <td (click)="day.checked = !day.checked;"
+      <td *ngFor="let day of getDaysOfWeek(week)"
+        (click)="day.checked = !day.checked;"
           class="prevent-select"
           [ngClass]="day.checked ? 'checked' : 'non-checked'">
         {{day.name}}
       </td>
-    </ng-container>
 
     <td *ngIf="week===4" colspan="3"
         class="prevent-select"

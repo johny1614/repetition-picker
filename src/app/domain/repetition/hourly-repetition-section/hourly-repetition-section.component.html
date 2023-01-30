@@ -1,9 +1,9 @@
 <label class="minutes">Minutes</label>
-<ng-container *ngFor="let form of formArray.controls; let i = index">
-  <app-hourly-repetition-picker [formControl]="formArray.controls[i] | formControl"
-                                [removable]="isRemovable(i)"
-                                (removeClick$)="onRemoveClick(i)"
-  >
-  </app-hourly-repetition-picker>
-</ng-container>
+<app-hourly-repetition-picker
+  *ngFor="let form of formArray.controls; let i = index"
+  [formControl]="formArray.controls[i] | formControl"
+  [removable]="isRemovable(i)"
+  (removeClick$)="onRemoveClick(i)"
+>
+</app-hourly-repetition-picker>
 <button class="add-minutes-button" (click)="addHourlyPicker()">+ Add minutes</button>
