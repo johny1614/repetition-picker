@@ -27,6 +27,7 @@ export class WeeklyRepetitionSectionComponent implements OnInit, OnChanges {
     return this.fb.control(Array.from({length: 7}, el => el = false)) as FormControl<Array<boolean>>;
   }
 
+
   ngOnChanges(changes: SimpleChanges): void {
     console.log('WeeklyRepetitionSectionComponent', changes)
   }

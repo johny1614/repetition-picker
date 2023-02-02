@@ -1,6 +1,6 @@
 import {
-  ChangeDetectionStrategy,
-  Component,
+  ChangeDetectionStrategy, ChangeDetectorRef,
+  Component, DoCheck,
   EventEmitter,
   forwardRef,
   Input,
@@ -51,10 +51,14 @@ export class HourlyRepetitionPickerComponent implements OnInit, OnChanges {
     this.val = val
     this.onChange(val)
     this.onTouch(val)
+    this.cdRef.markForCheck();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     console.log('HourlyRepetitionPickerComponent', changes)
+  }
+
+  constructor(private cdRef: ChangeDetectorRef) {
   }
 
   writeValue(value: any) {
@@ -62,7 +66,10 @@ export class HourlyRepetitionPickerComponent implements OnInit, OnChanges {
   }
 
   registerOnChange(fn: any) {
-    this.onChange = fn
+    this.onChange = (newValue) => {
+      fn(newValue);
+      this.val = newValue;
+    }
   }
 
   registerOnTouched(fn: any) {

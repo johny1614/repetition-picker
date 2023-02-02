@@ -1,5 +1,5 @@
 import {
-  ChangeDetectionStrategy,
+  ChangeDetectionStrategy, ChangeDetectorRef,
   Component,
   EventEmitter,
   forwardRef,
@@ -43,7 +43,7 @@ export class DailyRepetitionPickerComponent implements OnInit, ControlValueAcces
   }
 
 
-  constructor() {
+  constructor(private cdRef: ChangeDetectorRef) {
   }
 
   onChange: any = () => {
@@ -57,6 +57,7 @@ export class DailyRepetitionPickerComponent implements OnInit, ControlValueAcces
     this.val = val
     this.onChange(val)
     this.onTouch(val)
+    this.cdRef.markForCheck();
   }
 
   writeValue(value: any) {

@@ -1,5 +1,5 @@
 import {
-  ChangeDetectionStrategy,
+  ChangeDetectionStrategy, ChangeDetectorRef,
   Component,
   forwardRef,
   OnChanges,
@@ -40,7 +40,8 @@ export class WeeklyRepetitionPickerComponent implements ControlValueAccessor, On
   dayLabels: Array<string> = WeekDay.getWeekDays().map(day => day.getShortName());
   formArrayValueChangesSubscription: Subscription;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,
+              private cdRef: ChangeDetectorRef) {
   }
 
   ngOnDestroy(): void {
@@ -63,6 +64,7 @@ export class WeeklyRepetitionPickerComponent implements ControlValueAccessor, On
       })
     );
     this.observeFormArrayChanges();
+    this.cdRef.markForCheck();
   }
 
   registerOnChange(fn: (value: any) => void) {
@@ -82,4 +84,5 @@ export class WeeklyRepetitionPickerComponent implements ControlValueAccessor, On
       this._onChange(writeValue);
     });
   }
+
 }
