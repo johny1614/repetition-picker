@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
   scalePickerFormControl: FormControl<TimeScale | null>;
 
   constructor(private fb: FormBuilder) {
-    this.scalePickerFormControl = this.fb.control(null);
+    this.scalePickerFormControl = this.fb.control(TimeScale.Hourly);
   }
 
   ngOnInit(): void {
